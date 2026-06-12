@@ -1,15 +1,15 @@
-# WeChat Article To Doubao Podcast Skill
+# 微信文章转豆包播客技能
 
-A Codex Skill for fetching WeChat public-account articles, saving them as local HTML, serving the saved pages, and preparing URLs that can be exposed through Oray/花生壳 for Doubao/豆包 podcast conversion.
+这是一个用于 Codex 的技能，用来抓取微信公众号文章、保存为本地 HTML、启动本地文章服务，并为后续通过花生壳内网穿透映射公网、交给豆包 APP 转成播客做准备。
 
-## What It Does
+## 能做什么
 
-- Fetches `https://mp.weixin.qq.com/s/...` articles and saves them as HTML.
-- Serves saved HTML files from a local `articles/` directory.
-- Provides a repeatable workflow for mapping the local service to a public URL with 花生壳内网穿透.
-- Helps prepare article URLs that Doubao APP can consume for podcast generation.
+- 抓取 `https://mp.weixin.qq.com/s/...` 形式的微信公众号文章，并保存为 HTML。
+- 从本地 `articles/` 目录提供已保存文章的访问服务。
+- 提供一套可复用流程，将本地文章服务通过花生壳内网穿透映射为公网 URL。
+- 帮助准备豆包 APP 可访问的文章链接，用于生成播客。
 
-## Skill Structure
+## 技能目录结构
 
 ```text
 wechat-article-podcast/
@@ -25,43 +25,47 @@ wechat-article-podcast/
     └── serve_wechat_articles.py
 ```
 
-## Requirements
+## 安装依赖
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Script Usage
+## 脚本用法
 
-Fetch an article:
+抓取一篇微信公众号文章：
 
 ```bash
 python wechat-article-podcast/scripts/fetch_wechat_article.py "https://mp.weixin.qq.com/s/..." --output-dir articles
 ```
 
-Serve saved articles locally:
+启动本地文章服务：
 
 ```bash
 python wechat-article-podcast/scripts/serve_wechat_articles.py --article-dir articles --static-dir wechat-article-podcast/assets --host 127.0.0.1 --port 8027
 ```
 
-For tunnel tools that need LAN-accessible binding:
+如果内网穿透工具需要访问局域网地址，可以绑定所有网卡：
 
 ```bash
 python wechat-article-podcast/scripts/serve_wechat_articles.py --article-dir articles --static-dir wechat-article-podcast/assets --host 0.0.0.0 --port 8027
 ```
 
-## Doubao Podcast Flow
+## 豆包转播客流程
 
-1. Fetch the WeChat article and save it as HTML.
-2. Start the local article server.
-3. Use 花生壳内网穿透 to map the local service to a public URL.
-4. Give the public article URL to Doubao APP for podcast conversion.
+1. 抓取微信公众号文章并保存为 HTML。
+2. 启动本地文章服务。
+3. 使用花生壳内网穿透，将本地服务映射为公网 URL。
+4. 将公网文章 URL 交给豆包 APP，用于转换为播客。
 
-花生壳内网穿透: http://url.oray.com/i/47632
+花生壳内网穿透：
 
-Do not give Doubao APP a `localhost` or `127.0.0.1` URL from another device. Use the mapped public URL after tunnel setup.
+```text
+http://url.oray.com/i/47632
+```
 
-## License
+不要把另一台设备无法访问的 `localhost` 或 `127.0.0.1` 链接直接交给豆包 APP。应在内网穿透配置完成后，使用映射得到的公网 URL。
+
+## 开源协议
 
 MIT
