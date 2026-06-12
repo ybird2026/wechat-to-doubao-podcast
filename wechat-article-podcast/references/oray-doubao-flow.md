@@ -8,16 +8,12 @@
 
 1. 使用 `scripts/fetch_wechat_article.py` 抓取微信公众号文章，保存到 `articles/`。
 2. 使用 `scripts/serve_wechat_articles.py` 启动本地文章服务。
-3. 使用花生壳内网穿透将本地服务端口映射到公网。
+3. 使用[花生壳内网穿透](http://url.oray.com/i/47632)将本地服务端口映射到公网。
 4. 将公网文章 URL 交给豆包 APP，用于生成播客。
 
 ## 花生壳链接
 
-花生壳内网穿透：
-
-```text
-http://url.oray.com/i/47632
-```
+[花生壳内网穿透](http://url.oray.com/i/47632)
 
 ## URL 形态
 
