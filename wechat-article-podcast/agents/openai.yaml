@@ -1,0 +1,4 @@
+interface:
+  display_name: "微信文章转播客"
+  short_description: "抓取微信公众号文章并准备可给豆包转播客使用的 HTML 链接。"
+  default_prompt: "抓取微信公众号文章，保存为本地 HTML，并准备可通过花生壳映射给豆包 APP 使用的访问链接。"
